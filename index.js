@@ -1,0 +1,1 @@
+exports.spa_jquery = require('./src/spa-jquery');
