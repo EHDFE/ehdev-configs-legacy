@@ -15,7 +15,7 @@ exports.getOtherFileLoaderConfig = () => {
     query: {
       name: '[name].[ext]',
       outputPath: 'assets/',
-      publicPath: '/assets/',
+      // publicPath: '/assets/',
     },
   }
 };
@@ -37,7 +37,7 @@ exports.getStyleWithImageLoaderConfig = (IS_DEV, BROWSER_SUPPORTS, PUBLIC_PATH, 
   if (IS_DEV) {
     StyleLoaderConfig = `style-loader!${CommonStyleLoader}`;
     // 开发环境 图片不做处理
-    ImageLoaderConfig = ['file-loader?name=[name].[ext]&outputPath=assets/&publicPath=/'];
+    ImageLoaderConfig = ['file-loader?name=[name].[ext]&outputPath=assets/'];
   } else {
     StyleLoaderConfig = ExtractTextPlugin.extract('style-loader', CommonStyleLoader);
     ExtractCssPlugin = new ExtractTextPlugin('[name].[contenthash:8].css');

@@ -121,7 +121,7 @@ module.exports = (env = 'development', options) => {
     StyleLoaderConfig,
     ImageLoaderConfig,
     ExtractCssPlugin,
-  } = getStyleWithImageLoaderConfig(IS_DEV, BROWSER_SUPPORTS, `${PROJECT_CONFIG.publicPath}assets/`, PROJECT_CONFIG.base64);
+  } = getStyleWithImageLoaderConfig(IS_DEV, BROWSER_SUPPORTS, `${PROJECT_CONFIG.publicPath}`, PROJECT_CONFIG.base64);
 
   if (ExtractCssPlugin) {
     pluginsConfig.push(ExtractCssPlugin);
@@ -186,7 +186,9 @@ module.exports = (env = 'development', options) => {
                 },
                 // 支持老IE，启用 loose 模式
                 loose: true,
-              }]
+              }],
+              path.resolve(MODULES_PATH, 'babel-preset-react'),
+              path.resolve(MODULES_PATH, 'babel-preset-stage-1'),
             ],
             plugins: [
               path.resolve(MODULES_PATH, 'babel-plugin-syntax-dynamic-import'),
