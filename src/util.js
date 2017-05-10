@@ -27,7 +27,7 @@ exports.getOtherFileLoaderConfig = () => {
  */
 exports.getStyleWithImageLoaderConfig = (IS_DEV, BROWSER_SUPPORTS, PUBLIC_PATH, base64Config) => {
   const CommonStyleLoader = [
-    'css-loader',
+    'css-loader?minimize=' + (IS_DEV ? 'false' : 'true'),
     'postcss-loader',
     'less-loader',
   ].join('!');

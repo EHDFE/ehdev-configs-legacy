@@ -1,9 +1,13 @@
 # HISOTORY
 ---
 
+### 1.0.3
+---
+- `FIXED` css is not minified when build
+
 ### 1.0.1
 ---
-- `FIX` publicPath error
+- `FIXED` publicPath error
 - `FEATURE` add `react` support
 
 
