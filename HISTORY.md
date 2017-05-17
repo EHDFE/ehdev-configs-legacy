@@ -1,6 +1,10 @@
 # HISOTORY
 ---
 
+### 1.0.4
+---
+- `FIXED` chunkhash does not change is some case.
+
 ### 1.0.3
 ---
 - `FIXED` css is not minified when build

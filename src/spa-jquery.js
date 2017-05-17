@@ -3,8 +3,9 @@ const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin-legacy');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WebpackChunkHash = require('webpack-chunk-hash');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+// refer to: https://github.com/zhenyong/Blog/issues/1
+const WebpackStableModuleIdAndHash = require('webpack-stable-module-id-and-hash');
 
 const { getHTML, getStyleWithImageLoaderConfig, getOtherFileLoaderConfig } = require('./util');
 
@@ -44,9 +45,12 @@ module.exports = (env = 'development', options) => {
     new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 50000 }),
   ];
   if (IS_DEV) {
-    pluginsConfig.push(new webpack.HotModuleReplacementPlugin());
+    pluginsConfig.push(
+      new webpack.optimize.OccurrenceOrderPlugin(true),
+      new webpack.HotModuleReplacementPlugin()
+    );
   } else {
-    pluginsConfig.push(new WebpackChunkHash());
+    pluginsConfig.push(new WebpackStableModuleIdAndHash());
   }
 
   const OutputConfig = {
