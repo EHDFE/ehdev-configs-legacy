@@ -89,6 +89,7 @@ module.exports = (env = 'development', options) => {
         chunksSortMode: 'auto',
         chunks: [
           LibiaryList.map(name => `assets/${name}`),
+          'assets/commonLibs',
           pageName,
         ],
         minify: {
@@ -111,13 +112,14 @@ module.exports = (env = 'development', options) => {
   const LibiaryChunks = LibiaryList.map(
     name => new webpack.optimize.CommonsChunkPlugin({
       name: `assets/${name}`,
+      chunks: [`assets/${name}`],
       minChunks: Infinity,
     })
   );
 
   const CommonChunk = new webpack.optimize.CommonsChunkPlugin({
     name: 'common',
-    minChunks: Infinity,
+    chunks: Object.keys(entryConfig),
   });
 
   // css & image 解析配置
@@ -167,7 +169,7 @@ module.exports = (env = 'development', options) => {
   ];
 
   return {
-    entry: entryConfig,
+    entry: Object.assign(entryConfig, LibiaryEntry),
 
     output: OutputConfig,
 
