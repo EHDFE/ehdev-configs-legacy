@@ -8,14 +8,15 @@ exports.getHTML = (cwd) => glob.sync('*.html', {
 /**
  * 其它文件处理
  */
-exports.getOtherFileLoaderConfig = () => {
+exports.getOtherFileLoaderConfig = (PUBLIC_PATH) => {
   return {
-    test: /\.(swf|xlsx?|txt|docx?|pptx?|ico|cur)$/,
+    test: /\.(swf|xlsx?|txt|docx?|pptx?|ico|cur|webp)$/,
     loader: 'file-loader',
     query: {
       name: '[name].[ext]',
       outputPath: 'assets/',
       // publicPath: '/assets/',
+      publicPath: PUBLIC_PATH,
     },
   }
 };

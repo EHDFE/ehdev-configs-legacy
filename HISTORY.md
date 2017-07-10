@@ -1,6 +1,10 @@
 # HISOTORY
 ---
 
+### 1.0.7
+---
+- `FEATURE` support webp
+
 ### 1.0.4
 ---
 - `FIXED` chunkhash does not change is some case.
