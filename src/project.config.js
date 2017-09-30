@@ -11,5 +11,7 @@ module.exports = {
     limit: 10000
   },
   publicPath: "../",
-  supportIE8: false
+  framework: 'react',
+  supportIE8: true,
+  useBuiltIns: false,
 };
