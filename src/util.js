@@ -81,7 +81,7 @@ exports.HtmlLoaderConfig = {
  * svg 处理
  */
 exports.getSVGLoaderConfig = (PROJECT_CONFIG, MODULES_PATH, BROWSER_SUPPORTS) => {
-  if (PROJECT_CONFIG.framework === 'react') {
+  if (PROJECT_CONFIG.svgToReactComponent) {
     return [
       {
         test: /\.svg\?assets$/, // foo.svg?assets
@@ -173,11 +173,11 @@ exports.getJsLoader = (PROJECT_CONFIG, MODULES_PATH, BROWSER_SUPPORTS) => {
     });
   }
   return [
-    babelLoaderConfig,
     {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'es3ify-loader',
     },
+    babelLoaderConfig,
   ];
 };

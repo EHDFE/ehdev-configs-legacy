@@ -14,4 +14,5 @@ module.exports = {
   framework: 'react',
   supportIE8: true,
   useBuiltIns: false,
+  svgToReactComponent: false,
 };
