@@ -1,7 +1,11 @@
 # HISOTORY
 ---
 
-### 1.0.9
+### 1.0.11
+---
+- `FEATURE` support `useFolderAsHtmlName`
+
+### 1.0.10
 ---
 - `FEATURE` support `svgToReactComponent`
 

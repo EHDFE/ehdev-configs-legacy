@@ -15,4 +15,6 @@ module.exports = {
   supportIE8: true,
   useBuiltIns: false,
   svgToReactComponent: false,
+  // 使用 pages 下面的目录名做为 html 名称，只对 standard 项目生效
+  useFolderAsHtmlName: false,
 };
