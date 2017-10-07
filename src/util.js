@@ -173,11 +173,6 @@ exports.getJsLoader = (PROJECT_CONFIG, MODULES_PATH, BROWSER_SUPPORTS) => {
     });
   }
   return [
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'es3ify-loader',
-    },
     babelLoaderConfig,
   ];
 };

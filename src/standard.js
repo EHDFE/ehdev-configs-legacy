@@ -213,7 +213,14 @@ module.exports = (env = 'development', options) => {
         },
         getOtherFileLoaderConfig(PROJECT_CONFIG),
         HtmlLoaderConfig,
-      ].concat(getSVGLoaderConfig(PROJECT_CONFIG, MODULES_PATH, BROWSER_SUPPORTS))
+      ].concat(getSVGLoaderConfig(PROJECT_CONFIG, MODULES_PATH, BROWSER_SUPPORTS)),
+      postLoaders: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'es3ify-loader',
+        },
+      ]
     },
 
     externals: ExternalsConfig,
